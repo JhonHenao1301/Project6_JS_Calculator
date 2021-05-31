@@ -5,45 +5,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Calculator</title>
 </head>
 <body>
-    <div class="container">
-        <div class="calc_space">
-            <div class="solution_display"> <!--Where the solution is shown -->
-                <input type="text" id="final_display" placeholder="0">
-            </div>
-            <div class="keyboard">
-                <div class="keyboard_operators">
-                    <button name="data_delete">C</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mb-5">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Tools app</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#calculator">Calculator</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#weather">Weather app</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
 
-                    <button name="data_operation">/</button>
-                    <button name="data_operation">*</button>
-                    <button name="data_operation">-</button>
+    <div class="container mb-5">
+
+        <div class="calculator_container mt-5" id="calculator">
+            <h1 class="text-center">Calculator</h1>
+            <div class="calc_space mt-5">
+                <div class="solution_display"> 
+                    <!--Where the solution is shown -->
+                    <input type="text" id="final_display" placeholder="0">
                 </div>
-                <div class="keyboard_numbers">
-                    <button name="data_number">7</button>
-                    <button name="data_number">8</button>
-                    <button name="data_number">9</button>
+                <div class="keyboard">
+                    <div class="keyboard_operators">
+                        <button name="data_delete">C</button>
 
-                    <button name="data_operation">+</button>
+                        <button name="data_operation">/</button>
+                        <button name="data_operation">*</button>
+                        <button name="data_operation">-</button>
+                    </div>
+                    <div class="keyboard_numbers">
+                        <button name="data_number">7</button>
+                        <button name="data_number">8</button>
+                        <button name="data_number">9</button>
 
-                    <button name="data_number">4</button>
-                    <button name="data_number">5</button>
-                    <button name="data_number">6</button>
-                    <button name="data_number">1</button>
-                    <button name="data_number">2</button>
-                    <button name="data_number">3</button>
+                        <button name="data_operation">+</button>
 
-                    <button name="data_equal">=</button>
+                        <button name="data_number">4</button>
+                        <button name="data_number">5</button>
+                        <button name="data_number">6</button>
+                        <button name="data_number">1</button>
+                        <button name="data_number">2</button>
+                        <button name="data_number">3</button>
 
-                    <button name="data_number">0</button>
-                    <button name="data_number">.</button>
+                        <button name="data_equal">=</button>
+
+                        <button name="data_number">0</button>
+                        <button name="data_number">.</button>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Weather app -->
+        <div class="weather_container">
+            <h1 class="text-center">Weather app</h1>
+            <div class="weather_app bg-dark text-center mt-3 mb-5" id="weather">
+                <form id="search-form">
+                    <div class="search_box">
+                        <input type="text" class="search text-center" placeholder="Search a city" autocomplete="off" id="search-box">
+                    </div>
+                </form>
+                <div class="weather_card text-white pt-5 pb-5">
+                    <div class="city" id="city">Lima, Perú</div>
+                    <div class="date" id="date">28/05/2021</div>
+                    <div class="temp" id="temp">14c</div>
+                    <div class="state" id="state">Sol</div>
+                    <div class="range" id="range">8c/12c</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cronometer -->
+        <div class="cronometer_container">
+            <h1>Cronometer</h1>
+        </div>
+
     </div>
 
-    <script src="js/index.js"></script>
+    <script src="js/index.js" defer></script>
 </body>
 </html>

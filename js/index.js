@@ -1,5 +1,5 @@
 
-
+// ** Calculator **
 // Numbers
 const  btn_data_number = document.getElementsByName('data_number');
 const  btn_data_opera = document.getElementsByName('data_operation');
@@ -96,3 +96,49 @@ function erase(){
 function display_result(){
     result.value = actual_ope;
 }
+
+// ** Weather app **
+const api = {
+    key: '3d86a18d2661315b25eb8dcf7ec44ac6',
+    url: `https://api.openweathermap.org/data/2.5/weather`
+}
+
+const city = document.getElementById('city');
+const date = document.getElementById('date');
+const temp = document.getElementById('temp');
+const state = document.getElementById('state');
+const range = document.getElementById('range');
+
+async function search(query) {
+    try {
+        const response = await fetch(`${api.url}?q=${query}&appid=${api.key}&lang=es`);
+        const data = await response.json();
+        console.log(data);
+        city.innerHTML = `${data.name}, ${data.sys.country}`;
+        // date.innerHTML = (new Date()).toLocalDateString();
+        temp.innerHTML = `${toCelsius(data.main.temp)}c`;
+        state.innerHTML = data.weather[0].description;
+        range.innerHTML = `${toCelsius(data.main.temp_min)}c / ${toCelsius(data.main.temp_max)}c`;
+    } catch (error) {
+        console.log(error);
+        alert('There is a error');
+    }
+}
+
+function toCelsius(kelvin) {
+    return Math.round(kelvin-273.15);
+}
+
+function onSubmit(event){
+    event.preventDefault();
+    search(searchbox.value);
+    this.reset();
+}
+
+const searchform = document.getElementById('search-form');
+const searchbox = document.getElementById('search-box'); 
+searchform.addEventListener('submit', onSubmit, true);
+
+
+
+
